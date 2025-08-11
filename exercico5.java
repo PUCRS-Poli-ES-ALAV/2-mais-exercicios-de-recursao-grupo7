@@ -2,6 +2,10 @@
 
      boolean isPal(String s) */
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class exercico5 {
     public static void main(String[] args) {
         exercico5 obj = new exercico5();
@@ -75,4 +79,31 @@ public class exercico5 {
         }
         return null;
     }
+
+
+    /* 7. Modele e implemente um método recursivo que calcule o somatório dos 
+    números contidos em um ArrayList de inteiros, passado como parâmetro. */
+
+    public int somatorio (List<Integer> array) {
+        if(array==null || array.isEmpty()){
+            return 0;
+        }
+        return  array.get(0) + somatorio(array.subList(1,array.size() ));
+    }
+
+/*
+ * Modele e implemente um método recursivo para encontrar o maior elemento de um ArrayList.
+ */
+    public int findBiggest(ArrayList<Integer> ar) {
+        if(ar==null){
+            return 0;
+        }
+        int n = ar.remove(0);
+        if(n<ar.get(1))
+            return findBiggest(ar);
+        else
+            Array.setInt(ar, 1, n);
+            return findBiggest(ar);
+    }
 }
+
